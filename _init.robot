@@ -1,0 +1,1 @@
+Set Global Variable  ${ROOTDIR}  %{CURDIR}/../Officemate
