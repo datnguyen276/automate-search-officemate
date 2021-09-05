@@ -8,6 +8,6 @@
 ...        total_product=xpath=//div[@class='knEvI']
 ...        product_item_result_search=xpath=//a[contains(@id,'lbl-ProductPreview-Name')]
 ...        product_per_page=xpath=//a[contains(@id,'lbl-ProductPreview-Name')]      
-...        data_suggestion_product=xpath=//div[normalize-space()='Products']/following-sibling::div/a/div[@data-suggestion-label]      
+...        data_suggestion_product=xpath=//div[normalize-space()='Products']/following-sibling::div/a/div[@data-suggestion-label]
 ...        title_message=xpath=//div[@class='title']
 ...        suggestion_in_search=xpath=//div[@class='_4AELR suggestion_container']

@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.6 on win32)" generated="20210830 09:53:46.695" rpa="false" schemaversion="2">
+<suite id="s1" name="Search Function" source="C:\Users\DCG\Documents\Smart\linhtt1_qa_automation\Tests\search_function.robot">
+<kw name="Open Browser To Page" library="Common_Keywords" type="SETUP">
+<arg>${page_url}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20210830 09:53:49.255" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000214075661C0&gt;</msg>
+<status status="PASS" starttime="20210830 09:53:49.255" endtime="20210830 09:53:49.255"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${exclude}</var>
+<arg>"fasp"=True</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210830 09:53:49.255" level="INFO">${exclude} = {'"fasp"': 'True'}</msg>
+<status status="PASS" starttime="20210830 09:53:49.255" endtime="20210830 09:53:49.255"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>protocol_handler.excluded_schemes=${exclude}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210830 09:53:49.261" level="INFO">${prefs} = {'protocol_handler.excluded_schemes': {'"fasp"': 'True'}}</msg>
+<status status="PASS" starttime="20210830 09:53:49.255" endtime="20210830 09:53:49.261"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-infobars</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20210830 09:53:49.261" endtime="20210830 09:53:49.262"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20210830 09:53:49.262" endtime="20210830 09:53:49.262"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20210830 09:53:49.262" endtime="20210830 09:53:49.262"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20210830 09:53:49.262" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20210830 09:53:49.262" endtime="20210830 09:53:51.205"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210830 09:53:51.205" endtime="20210830 09:53:51.384"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${speed}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20210830 09:53:51.385" endtime="20210830 09:53:51.387"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20210830 09:53:51.387" level="INFO">Opening url 'https://www.officemate.co.th/en'</msg>
+<status status="PASS" starttime="20210830 09:53:51.387" endtime="20210830 09:54:34.975"/>
+</kw>
+<status status="PASS" starttime="20210830 09:53:49.255" endtime="20210830 09:54:34.976"/>
+</kw>
+<test id="s1-t1" name="Test case 1: Verify input into search text box">
+<kw name="Verify product after searching">
+<arg>Samsung</arg>
+<kw name="Input value" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Close popup if it appeared" library="Home">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Element Should Be Visible</arg>
+<arg>${home.frame}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${home.frame}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210830 09:54:35.351" level="INFO">Element 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]' is displayed.</msg>
+<status status="PASS" starttime="20210830 09:54:34.993" endtime="20210830 09:54:35.351"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:34.992" endtime="20210830 09:54:35.352"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Select Frame</arg>
+<arg>${home.frame}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${home.frame}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20210830 09:54:35.352" level="INFO">Selecting frame 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]'.</msg>
+<status status="PASS" starttime="20210830 09:54:35.352" endtime="20210830 09:54:35.991"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:35.352" endtime="20210830 09:54:35.992"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Click Element</arg>
+<arg>${home.x_button}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Click Element" library="Common_Keywords">
+<arg>${home.x_button}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210830 09:54:36.006" endtime="20210830 09:54:36.460"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:36.460" level="INFO">Clicking element 'xpath=//i[@id='icon-close-button-1454703945249']'.</msg>
+<status status="PASS" starttime="20210830 09:54:36.460" endtime="20210830 09:54:36.911"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:35.992" endtime="20210830 09:54:36.912"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:35.992" endtime="20210830 09:54:36.913"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Unselect Frame</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20210830 09:54:36.914" endtime="20210830 09:54:37.031"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:36.914" endtime="20210830 09:54:37.031"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:34.989" endtime="20210830 09:54:37.032"/>
+</kw>
+<kw name="Input data" library="Common_Keywords">
+<arg>${home.search_textbox}</arg>
+<arg>${value}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:37.037" level="INFO">Typing text 'Samsung' into text field 'xpath=//input[@data-testid='txt-SearchBar']'.</msg>
+<status status="PASS" starttime="20210830 09:54:37.037" endtime="20210830 09:54:37.812"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:37.033" endtime="20210830 09:54:37.814"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:34.987" endtime="20210830 09:54:37.819"/>
+</kw>
+<kw name="Click on submit button" library="Home">
+<kw name="Click Element" library="Common_Keywords">
+<arg>${home.submit_button}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210830 09:54:37.836" endtime="20210830 09:54:38.284"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:38.284" level="INFO">Clicking element 'xpath=//div[@id='btn-searchResultPage']'.</msg>
+<status status="PASS" starttime="20210830 09:54:38.284" endtime="20210830 09:54:38.809"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:37.824" endtime="20210830 09:54:38.810"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:37.824" endtime="20210830 09:54:38.810"/>
+</kw>
+<kw name="Verify total product after search" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${home.total_product}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:38.812" endtime="20210830 09:54:43.507"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:38.811" endtime="20210830 09:54:43.508"/>
+</kw>
+<kw name="Verify product item" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Verify contains text in list" library="Common_Keywords">
+<arg>${home.product_item_result_search}</arg>
+<arg>${value}</arg>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${listElement}</var>
+<arg>${element}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20210830 09:54:43.780" level="INFO">${listElement} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="bd5229d4-cf94-44f4-9490-d4cb5ead0c1d")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20210830 09:54:43.529" endtime="20210830 09:54:43.780"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{listElement}</value>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="bd5229d4-cf94-44f4-9490-d4cb5ead0c1d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:43.943" level="INFO">${text} = SAMSUNG Case for Samsung Galaxy Note 10 Plus LEATHER NOTE10+ Grey Color</msg>
+<status status="PASS" starttime="20210830 09:54:43.782" endtime="20210830 09:54:43.944"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:43.944" endtime="20210830 09:54:44.085"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:43.781" endtime="20210830 09:54:44.085"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="8d47e6f8-2a62-42c9-b5bd-f9eeb0ac4b76")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:44.237" level="INFO">${text} = Compute Samsung MLT-D204L Toner Cartridge</msg>
+<status status="PASS" starttime="20210830 09:54:44.086" endtime="20210830 09:54:44.237"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:44.238" endtime="20210830 09:54:44.377"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:44.085" endtime="20210830 09:54:44.377"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="3e34af84-4d1f-45fd-8b22-96ac06f9af1d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:44.536" level="INFO">${text} = Toner Cartride Cyan Compute Samsung CLT-C404</msg>
+<status status="PASS" starttime="20210830 09:54:44.378" endtime="20210830 09:54:44.536"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:44.536" endtime="20210830 09:54:44.667"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:44.377" endtime="20210830 09:54:44.667"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="61a009d9-4dd4-4951-bf76-349484bfc68e")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:44.821" level="INFO">${text} = Compute Samsung ML1660 Toner Black</msg>
+<status status="PASS" starttime="20210830 09:54:44.669" endtime="20210830 09:54:44.821"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:44.822" endtime="20210830 09:54:44.965"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:44.668" endtime="20210830 09:54:44.966"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="0fd2dc85-db5a-4761-b037-9df277b6a226")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:45.101" level="INFO">${text} = Toner Cartride Yellow Compute Samsung CLT-Y404</msg>
+<status status="PASS" starttime="20210830 09:54:44.968" endtime="20210830 09:54:45.101"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:45.101" endtime="20210830 09:54:45.237"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:44.967" endtime="20210830 09:54:45.238"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="1f2f14bf-53ed-4d78-bcc0-393bdd9a571d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:45.400" level="INFO">${text} = Samsung Multiport Adapter (USB-A,HDMI,TYPE-C)</msg>
+<status status="PASS" starttime="20210830 09:54:45.239" endtime="20210830 09:54:45.400"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:45.400" endtime="20210830 09:54:45.518"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:45.239" endtime="20210830 09:54:45.518"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="3b9a8176-2b13-4670-9a92-5cb42b4ccb73")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:45.640" level="INFO">${text} = Toner Cartride Megenta Compute Samsung CLT-M404</msg>
+<status status="PASS" starttime="20210830 09:54:45.518" endtime="20210830 09:54:45.641"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:45.641" endtime="20210830 09:54:45.776"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:45.518" endtime="20210830 09:54:45.776"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="62c43f08-d992-4e87-b3dd-c824d1063823")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:45.990" level="INFO">${text} = Compute Toner Cartridge Samsung D111L</msg>
+<status status="PASS" starttime="20210830 09:54:45.776" endtime="20210830 09:54:45.990"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:45.991" endtime="20210830 09:54:46.124"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:45.776" endtime="20210830 09:54:46.124"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="c635039f-21dc-456c-b644-b98b8c33fa38")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:46.286" level="INFO">${text} = Toner Cartridge Black Compute Samsung D116L</msg>
+<status status="PASS" starttime="20210830 09:54:46.125" endtime="20210830 09:54:46.286"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:54:46.286" endtime="20210830 09:54:46.420"/>
+</kw>
+<status status="PASS" starttime="20210830 09:54:46.125" endtime="20210830 09:54:46.420"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="00906b8b-9f42-4de2-ac23-e9120ab9cd3b")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:54:46.569" level="INFO">${text} = SAMSUNG Soundbar HW-T650/XT</msg>
+<status status="PASS" starttime="20210830 09:54:46.420" endtime="20210830 09:54:46.569"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210830 09:55:17.399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210830 09:55:16.822" endtime="20210830 09:55:17.399"/>
+</kw>
+<msg timestamp="20210830 09:55:17.409" level="FAIL">Element '&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="00906b8b-9f42-4de2-ac23-e9120ab9cd3b")&gt;' did not get text 'Samsung' in 30 seconds.</msg>
+<status status="FAIL" starttime="20210830 09:54:46.570" endtime="20210830 09:55:17.409"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:54:46.420" endtime="20210830 09:55:17.409"/>
+</iter>
+<status status="FAIL" starttime="20210830 09:54:43.780" endtime="20210830 09:55:17.409"/>
+</for>
+<status status="FAIL" starttime="20210830 09:54:43.517" endtime="20210830 09:55:17.409"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:54:43.510" endtime="20210830 09:55:17.409"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:54:34.984" endtime="20210830 09:55:17.417"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:54:34.977" endtime="20210830 09:55:17.421">Element '&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="00906b8b-9f42-4de2-ac23-e9120ab9cd3b")&gt;' did not get text 'Samsung' in 30 seconds.</status>
+</test>
+<test id="s1-t2" name="Test case 1: Verify input into search text box">
+<kw name="Verify product after searching">
+<arg>โทรทัศน์</arg>
+<kw name="Input value" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Close popup if it appeared" library="Home">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Element Should Be Visible</arg>
+<arg>${home.frame}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${home.frame}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210830 09:55:17.726" level="INFO">Element 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]' is displayed.</msg>
+<status status="PASS" starttime="20210830 09:55:17.441" endtime="20210830 09:55:17.726"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:17.440" endtime="20210830 09:55:17.726"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Select Frame</arg>
+<arg>${home.frame}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${home.frame}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20210830 09:55:17.727" level="INFO">Selecting frame 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]'.</msg>
+<status status="PASS" starttime="20210830 09:55:17.727" endtime="20210830 09:55:18.051"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:17.727" endtime="20210830 09:55:18.051"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Click Element</arg>
+<arg>${home.x_button}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Click Element" library="Common_Keywords">
+<arg>${home.x_button}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210830 09:55:18.059" endtime="20210830 09:55:18.330"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:55:18.330" level="INFO">Clicking element 'xpath=//i[@id='icon-close-button-1454703945249']'.</msg>
+<status status="PASS" starttime="20210830 09:55:18.330" endtime="20210830 09:55:18.754"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:18.051" endtime="20210830 09:55:18.755"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:18.051" endtime="20210830 09:55:18.756"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Unselect Frame</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20210830 09:55:18.759" endtime="20210830 09:55:18.884"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:18.757" endtime="20210830 09:55:18.885"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:17.439" endtime="20210830 09:55:18.886"/>
+</kw>
+<kw name="Input data" library="Common_Keywords">
+<arg>${home.search_textbox}</arg>
+<arg>${value}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210830 09:55:18.895" level="INFO">Typing text 'โทรทัศน์' into text field 'xpath=//input[@data-testid='txt-SearchBar']'.</msg>
+<status status="PASS" starttime="20210830 09:55:18.894" endtime="20210830 09:55:19.629"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:18.887" endtime="20210830 09:55:19.629"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:17.438" endtime="20210830 09:55:19.630"/>
+</kw>
+<kw name="Click on submit button" library="Home">
+<kw name="Click Element" library="Common_Keywords">
+<arg>${home.submit_button}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210830 09:55:19.637" endtime="20210830 09:55:19.974"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:55:19.976" level="INFO">Clicking element 'xpath=//div[@id='btn-searchResultPage']'.</msg>
+<status status="PASS" starttime="20210830 09:55:19.975" endtime="20210830 09:55:20.746"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:19.630" endtime="20210830 09:55:20.746"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:19.630" endtime="20210830 09:55:20.746"/>
+</kw>
+<kw name="Verify total product after search" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${home.total_product}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:55:20.747" endtime="20210830 09:55:21.747"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:20.746" endtime="20210830 09:55:21.748"/>
+</kw>
+<kw name="Verify product item" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Verify contains text in list" library="Common_Keywords">
+<arg>${home.product_item_result_search}</arg>
+<arg>${value}</arg>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${listElement}</var>
+<arg>${element}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20210830 09:55:22.201" level="INFO">${listElement} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="a456e4bf-d56b-4be4-bd9b-f6e50727bffa")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20210830 09:55:21.753" endtime="20210830 09:55:22.202"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{listElement}</value>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="a456e4bf-d56b-4be4-bd9b-f6e50727bffa")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:55:22.403" level="INFO">${text} = โจ้โจ้ติดโทรทัศน์ นิทานชุด กว่าหนูจะโตเป็นคนดี</msg>
+<status status="PASS" starttime="20210830 09:55:22.202" endtime="20210830 09:55:22.403"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:55:22.403" endtime="20210830 09:55:22.642"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:22.202" endtime="20210830 09:55:22.642"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="89cb7c5c-6e19-46db-8315-1fd3f787193c")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:55:22.797" level="INFO">${text} = BTICINO TV Socket BTICINO SM9152D White</msg>
+<status status="PASS" starttime="20210830 09:55:22.643" endtime="20210830 09:55:22.797"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210830 09:55:53.661" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210830 09:55:53.121" endtime="20210830 09:55:53.662"/>
+</kw>
+<msg timestamp="20210830 09:55:53.668" level="FAIL">Element '&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="89cb7c5c-6e19-46db-8315-1fd3f787193c")&gt;' did not get text 'โทรทัศน์' in 30 seconds.</msg>
+<status status="FAIL" starttime="20210830 09:55:22.797" endtime="20210830 09:55:53.669"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:55:22.643" endtime="20210830 09:55:53.672"/>
+</iter>
+<status status="FAIL" starttime="20210830 09:55:22.202" endtime="20210830 09:55:53.672"/>
+</for>
+<status status="FAIL" starttime="20210830 09:55:21.748" endtime="20210830 09:55:53.672"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:55:21.748" endtime="20210830 09:55:53.680"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:55:17.437" endtime="20210830 09:55:53.682"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:55:17.423" endtime="20210830 09:55:53.684">Element '&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="89cb7c5c-6e19-46db-8315-1fd3f787193c")&gt;' did not get text 'โทรทัศน์' in 30 seconds.</status>
+</test>
+<test id="s1-t3" name="Test case 1: Verify input into search text box">
+<kw name="Verify product after searching">
+<kw name="Input value" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Close popup if it appeared" library="Home">
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Element Should Be Visible</arg>
+<arg>${home.frame}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${home.frame}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210830 09:55:54.404" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210830 09:55:53.825" endtime="20210830 09:55:54.404"/>
+</kw>
+<msg timestamp="20210830 09:55:54.409" level="FAIL">Element with locator 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]' not found.</msg>
+<status status="FAIL" starttime="20210830 09:55:53.702" endtime="20210830 09:55:54.409"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:53.702" endtime="20210830 09:55:54.410"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Select Frame</arg>
+<arg>${home.frame}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>${home.frame}</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20210830 09:55:54.413" level="INFO">Selecting frame 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210830 09:55:55.198" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210830 09:55:54.534" endtime="20210830 09:55:55.198"/>
+</kw>
+<msg timestamp="20210830 09:55:55.201" level="FAIL">Element with locator 'xpath=//iframe[contains(@classname,'sp-fancybox-iframe')]' not found.</msg>
+<status status="FAIL" starttime="20210830 09:55:54.410" endtime="20210830 09:55:55.201"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:54.410" endtime="20210830 09:55:55.201"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Click Element</arg>
+<arg>${home.x_button}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Click Element" library="Common_Keywords">
+<arg>${home.x_button}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210830 09:56:26.173" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210830 09:56:25.429" endtime="20210830 09:56:26.174"/>
+</kw>
+<msg timestamp="20210830 09:56:26.182" level="FAIL">Element 'xpath=//i[@id='icon-close-button-1454703945249']' not visible after 30 seconds.</msg>
+<status status="FAIL" starttime="20210830 09:55:55.205" endtime="20210830 09:56:26.183"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20210830 09:56:26.184" endtime="20210830 09:56:26.184"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:55:55.202" endtime="20210830 09:56:26.193"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:55.202" endtime="20210830 09:56:26.193"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>SeleniumLibrary.Unselect Frame</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20210830 09:56:26.197" endtime="20210830 09:56:26.305"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:26.193" endtime="20210830 09:56:26.305"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:53.701" endtime="20210830 09:56:26.306"/>
+</kw>
+<kw name="Input data" library="Common_Keywords">
+<arg>${home.search_textbox}</arg>
+<arg>${value}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:26.311" level="INFO">Typing text '' into text field 'xpath=//input[@data-testid='txt-SearchBar']'.</msg>
+<status status="PASS" starttime="20210830 09:56:26.309" endtime="20210830 09:56:26.833"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:26.306" endtime="20210830 09:56:26.833"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:53.699" endtime="20210830 09:56:26.834"/>
+</kw>
+<kw name="Click on submit button" library="Home">
+<kw name="Click Element" library="Common_Keywords">
+<arg>${home.submit_button}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210830 09:56:26.839" endtime="20210830 09:56:27.090"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:27.090" level="INFO">Clicking element 'xpath=//div[@id='btn-searchResultPage']'.</msg>
+<status status="PASS" starttime="20210830 09:56:27.090" endtime="20210830 09:56:27.721"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:26.834" endtime="20210830 09:56:27.721"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:26.834" endtime="20210830 09:56:27.721"/>
+</kw>
+<kw name="Verify total product after search" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${home.total_product}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:27.722" endtime="20210830 09:56:28.675"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:27.722" endtime="20210830 09:56:28.676"/>
+</kw>
+<kw name="Verify product item" library="Home">
+<arg>${valueExisted}</arg>
+<kw name="Verify contains text in list" library="Common_Keywords">
+<arg>${home.product_item_result_search}</arg>
+<arg>${value}</arg>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${listElement}</var>
+<arg>${element}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20210830 09:56:28.809" level="INFO">${listElement} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="0c30224f-fc69-4885-bad5-046721e2df5b")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20210830 09:56:28.685" endtime="20210830 09:56:28.809"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{listElement}</value>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="0c30224f-fc69-4885-bad5-046721e2df5b")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:28.957" level="INFO">${text} = โจ้โจ้ติดโทรทัศน์ นิทานชุด กว่าหนูจะโตเป็นคนดี</msg>
+<status status="PASS" starttime="20210830 09:56:28.812" endtime="20210830 09:56:28.957"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:28.959" endtime="20210830 09:56:29.093"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:28.809" endtime="20210830 09:56:29.093"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="ae002441-41fb-4e7f-bd2b-ce18163c9e7f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:29.238" level="INFO">${text} = BTICINO TV Socket BTICINO SM9152D White</msg>
+<status status="PASS" starttime="20210830 09:56:29.094" endtime="20210830 09:56:29.238"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:29.239" endtime="20210830 09:56:29.385"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:29.093" endtime="20210830 09:56:29.386"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="00f1406c-950f-471b-8efe-584cfcb269ad")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:29.535" level="INFO">${text} = SPOA Jack TV Male Steel 5C 75 โอห์ม</msg>
+<status status="PASS" starttime="20210830 09:56:29.387" endtime="20210830 09:56:29.535"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:29.535" endtime="20210830 09:56:29.672"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:29.386" endtime="20210830 09:56:29.672"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="5a54feb7-ac79-42dc-b1c4-708b1b6b5663")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:29.818" level="INFO">${text} = SAHN WS1-15 TV Socket</msg>
+<status status="PASS" starttime="20210830 09:56:29.672" endtime="20210830 09:56:29.819"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:29.820" endtime="20210830 09:56:29.958"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:29.672" endtime="20210830 09:56:29.958"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="694c1a09-eb75-48ce-a40d-304ac1ebeca3")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:30.111" level="INFO">${text} = HACO TV / Audio Socket Deco W8201TV White Color</msg>
+<status status="PASS" starttime="20210830 09:56:29.959" endtime="20210830 09:56:30.112"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:30.113" endtime="20210830 09:56:30.472"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:29.958" endtime="20210830 09:56:30.472"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="e9b8b8af-ab8b-4f9a-bc15-95ab9dfec0d9")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:30.606" level="INFO">${text} = HACO TV Socket HACO-M3-T111 White Color</msg>
+<status status="PASS" starttime="20210830 09:56:30.472" endtime="20210830 09:56:30.606"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:30.615" endtime="20210830 09:56:30.797"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:30.472" endtime="20210830 09:56:30.798"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="77592596-0438-424b-a6a8-7c50ff4a556a")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:31.021" level="INFO">${text} = PHILIPS TV Socket LEAF 1M TV SOCKET black Color</msg>
+<status status="PASS" starttime="20210830 09:56:30.800" endtime="20210830 09:56:31.021"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:31.021" endtime="20210830 09:56:31.168"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:30.799" endtime="20210830 09:56:31.168"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="e36774fc-9eeb-476a-958d-b0a08f409d0f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:31.325" level="INFO">${text} = PHILIPS TV Socket LEAF1M TV SOCKET WhiteColor</msg>
+<status status="PASS" starttime="20210830 09:56:31.168" endtime="20210830 09:56:31.325"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:31.326" endtime="20210830 09:56:31.449"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:31.168" endtime="20210830 09:56:31.449"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="d88eaba8-48f0-4d98-93b8-054acf1a282c")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:31.596" level="INFO">${text} = SAHN WS1-24 TV &amp; Computer/LAN Socket</msg>
+<status status="PASS" starttime="20210830 09:56:31.450" endtime="20210830 09:56:31.596"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:31.597" endtime="20210830 09:56:31.717"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:31.450" endtime="20210830 09:56:31.717"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="dccd8c0e-7ae5-408e-be4a-4c4836151fc9")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:31.848" level="INFO">${text} = SAHN A15 - BR TV Socket (36mm)</msg>
+<status status="PASS" starttime="20210830 09:56:31.718" endtime="20210830 09:56:31.848"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:31.849" endtime="20210830 09:56:31.985"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:31.718" endtime="20210830 09:56:31.985"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="0a05c240-c379-4a46-bed9-a5dcd1b66fe2")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:32.135" level="INFO">${text} = HACO Single Television Socket 75 Ohm HACO-H40-T075 White Color</msg>
+<status status="PASS" starttime="20210830 09:56:31.985" endtime="20210830 09:56:32.135"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:32.135" endtime="20210830 09:56:32.265"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:31.985" endtime="20210830 09:56:32.266"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="4dce8656-c0af-4152-b557-0032348e4c7d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:32.410" level="INFO">${text} = HACO TV Socket With Box M3-T10 White Color</msg>
+<status status="PASS" starttime="20210830 09:56:32.267" endtime="20210830 09:56:32.410"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:32.410" endtime="20210830 09:56:32.552"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:32.267" endtime="20210830 09:56:32.552"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="9b985260-9203-4d61-9638-4bf078040c65")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:32.697" level="INFO">${text} = PANASONIC TV Socket WEG2501H Grey Color</msg>
+<status status="PASS" starttime="20210830 09:56:32.553" endtime="20210830 09:56:32.697"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:32.698" endtime="20210830 09:56:32.815"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:32.552" endtime="20210830 09:56:32.815"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="89255e8f-3915-456f-816f-63c5785d92e9")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:32.963" level="INFO">${text} = LUZINA TV Socket LZTV-001 White Color</msg>
+<status status="PASS" starttime="20210830 09:56:32.815" endtime="20210830 09:56:32.963"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:32.963" endtime="20210830 09:56:33.099"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:32.815" endtime="20210830 09:56:33.099"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="f1888451-d80a-4673-aa56-ac36287d2e61")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:33.244" level="INFO">${text} = SPOA Jack TV Female Steel 5C 75 โอห์ม</msg>
+<status status="PASS" starttime="20210830 09:56:33.099" endtime="20210830 09:56:33.244"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:33.244" endtime="20210830 09:56:33.372"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:33.099" endtime="20210830 09:56:33.372"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="3fb824cb-257c-4fda-a7de-74be6caaab4f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:33.528" level="INFO">${text} = HAIFAI TV Cable HV-3000 3 M</msg>
+<status status="PASS" starttime="20210830 09:56:33.373" endtime="20210830 09:56:33.529"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:33.530" endtime="20210830 09:56:33.665"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:33.373" endtime="20210830 09:56:33.665"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="0cdbf0ca-4154-4f73-9ce2-e858ceff92f2")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:33.809" level="INFO">${text} = LUZINA TV Socket A85-E03 Silver Color</msg>
+<status status="PASS" starttime="20210830 09:56:33.666" endtime="20210830 09:56:33.809"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:33.809" endtime="20210830 09:56:33.938"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:33.666" endtime="20210830 09:56:33.938"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="f96cd2a7-c926-4815-bdbe-82efc0069139")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:34.089" level="INFO">${text} = HAIFAI TV Cable HV-1500 1.5 M</msg>
+<status status="PASS" starttime="20210830 09:56:33.938" endtime="20210830 09:56:34.089"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:34.090" endtime="20210830 09:56:34.231"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:33.938" endtime="20210830 09:56:34.231"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="35013d54-aa00-4371-af82-f737e0b63ec8")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:34.381" level="INFO">${text} = HACO TV Socket Module 1 Module ALPHA HACO-AP-T075 White Color</msg>
+<status status="PASS" starttime="20210830 09:56:34.232" endtime="20210830 09:56:34.381"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:34.381" endtime="20210830 09:56:34.600"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:34.231" endtime="20210830 09:56:34.600"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="759bd048-8495-464e-af51-40ee370aed67")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:34.748" level="INFO">${text} = PANASONIC TV SOCKET Wide WEG2501/5 White Color 5 Pcs./Pack</msg>
+<status status="PASS" starttime="20210830 09:56:34.600" endtime="20210830 09:56:34.748"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:34.748" endtime="20210830 09:56:34.880"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:34.600" endtime="20210830 09:56:34.880"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="5fc3fe42-3636-4b0b-bc12-07d607e3e7b8")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:35.025" level="INFO">${text} = schneider AvatarOn A M3T1TVFM_GY Grey color</msg>
+<status status="PASS" starttime="20210830 09:56:34.880" endtime="20210830 09:56:35.025"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:35.025" endtime="20210830 09:56:35.157"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:34.880" endtime="20210830 09:56:35.157"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="7e01b2f4-e61a-47b6-85dc-5296aac92492")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:35.302" level="INFO">${text} = schneider AvatarOn A M3T1TVFM_WE white color</msg>
+<status status="PASS" starttime="20210830 09:56:35.158" endtime="20210830 09:56:35.302"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:35.303" endtime="20210830 09:56:35.438"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:35.158" endtime="20210830 09:56:35.438"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="bc994ec3-7e0a-4916-9aee-94284dee3ff4")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:35.589" level="INFO">${text} = schneider AvatarOn A M3T1TV75M_GY Grey color 75โอห์ม</msg>
+<status status="PASS" starttime="20210830 09:56:35.438" endtime="20210830 09:56:35.589"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:35.590" endtime="20210830 09:56:35.716"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:35.438" endtime="20210830 09:56:35.716"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="28185bc8-d7bc-445a-b71d-01c4880e2141")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:35.864" level="INFO">${text} = schneider AvatarOn A M3T1TV75M_BK black color</msg>
+<status status="PASS" starttime="20210830 09:56:35.717" endtime="20210830 09:56:35.864"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:35.864" endtime="20210830 09:56:36.004"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:35.717" endtime="20210830 09:56:36.004"/>
+</iter>
+<iter>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a7ac0d1384e0759a09e1f121459cf483", element="c3a034ac-902f-4590-89bd-42ccfb58ed98")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20210830 09:56:36.129" level="INFO">${text} = schneider AvatarOn A M3T1TV75M_WE white color 75โอห์ม</msg>
+<status status="PASS" starttime="20210830 09:56:36.005" endtime="20210830 09:56:36.129"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${item}</arg>
+<arg>${value}</arg>
+<arg>${GLOBALTIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20210830 09:56:36.129" endtime="20210830 09:56:36.266"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:36.004" endtime="20210830 09:56:36.266"/>
+</iter>
+<status status="PASS" starttime="20210830 09:56:28.809" endtime="20210830 09:56:36.266"/>
+</for>
+<status status="PASS" starttime="20210830 09:56:28.680" endtime="20210830 09:56:36.267"/>
+</kw>
+<status status="PASS" starttime="20210830 09:56:28.676" endtime="20210830 09:56:36.267"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:53.698" endtime="20210830 09:56:36.267"/>
+</kw>
+<status status="PASS" starttime="20210830 09:55:53.689" endtime="20210830 09:56:36.271"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210830 09:56:36.280" endtime="20210830 09:56:39.737"/>
+</kw>
+<status status="FAIL" starttime="20210830 09:53:46.700" endtime="20210830 09:56:39.738"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="2" skip="0" id="s1" name="Search Function">Search Function</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20210830 09:55:17.423" level="WARN">Multiple test cases with name 'Test case 1: Verify input into search text box' executed in test suite 'Search Function'.</msg>
+<msg timestamp="20210830 09:55:53.688" level="WARN">Multiple test cases with name 'Test case 1: Verify input into search text box' executed in test suite 'Search Function'.</msg>
+</errors>
+</robot>
